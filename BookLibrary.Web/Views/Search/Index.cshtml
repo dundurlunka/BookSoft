@@ -1,0 +1,48 @@
+﻿@using BookLibrary.Models.ViewModels;
+@model BookLibrary.Models.ViewModels.SearchViewModel
+
+@{
+    ViewBag.Title = "Search results";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+@{ var count = Model.Tags.Count + Model.Users.Count;}
+
+@if (Model.IsAnythingFound)
+{
+    <h2>Search results: @count</h2>
+}
+else
+{
+    <h2>No users, books or tags found. Try again</h2>
+}
+
+<h2>Users (@Model.Users.Count)</h2>
+
+@foreach (var searchResult in Model.Users)
+{
+    <h4>
+        <a class="link" href="../Users/Details/@searchResult.Id">@searchResult.Username</a>
+        @if (searchResult.Name != null)
+        {
+            <span>(@searchResult.Name)</span>
+        }
+
+    </h4>
+}
+
+<h2>Tags (@Model.Tags.Count)</h2>
+
+@foreach (var tag in Model.Tags)
+{
+    <h4><a class="link" href="../Tags/Details/@tag.Id">#@tag.Name</a></h4>
+}
+
+<h2>Books (@Model.Books.Count)</h2>
+
+@foreach (var book in Model.Books)
+{
+    <h3><a href="Details/@book.Id">@book.Title</a> by <a href="../../Users/Details/@book.UserId">@book.User.Name</a> read @book.Reads times</h3>
+}
+
+

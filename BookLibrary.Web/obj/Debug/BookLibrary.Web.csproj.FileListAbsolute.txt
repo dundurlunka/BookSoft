@@ -1,0 +1,148 @@
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\ApplicationInsights.config
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\csc.exe
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\csc.exe.config
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\csc.rsp
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\csi.exe
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\csi.rsp
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\System.AppContext.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\System.Collections.Immutable.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\System.IO.FileSystem.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\System.Reflection.Metadata.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\vbc.exe
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\vbc.exe.config
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\vbc.rsp
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\VBCSCompiler.exe
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\roslyn\VBCSCompiler.exe.config
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\BookLibrary.Web.dll.config
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\BookLibrary.Web.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\BookLibrary.Web.pdb
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\Antlr3.Runtime.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\EntityFramework.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\EntityFramework.SqlServer.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\Microsoft.AI.Agent.Intercept.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\Microsoft.AI.DependencyCollector.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\Microsoft.AI.Web.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\Microsoft.AI.WindowsServer.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\Microsoft.ApplicationInsights.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\Newtonsoft.Json.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\System.Web.Helpers.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\System.Web.Mvc.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\System.Web.Optimization.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\System.Web.Razor.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\System.Web.WebPages.Deployment.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\System.Web.WebPages.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\System.Web.WebPages.Razor.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\WebGrease.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\EntityFramework.xml
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\EntityFramework.SqlServer.xml
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\System.Web.Helpers.xml
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\System.Web.Mvc.xml
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\System.Web.Optimization.xml
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\System.Web.Razor.xml
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\System.Web.WebPages.xml
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\System.Web.WebPages.Deployment.xml
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\System.Web.WebPages.Razor.xml
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\Antlr3.Runtime.pdb
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\Newtonsoft.Json.xml
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\Microsoft.ApplicationInsights.xml
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\Microsoft.AI.DependencyCollector.xml
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\Microsoft.AI.WindowsServer.xml
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\bin\Microsoft.AI.Web.xml
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\obj\Debug\BookLibrary.Web.csprojResolveAssemblyReference.cache
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\obj\Debug\BookLibrary.Web.dll
+D:\BiSoft Projects\BookLibrary\BookLibrary.Web\obj\Debug\BookLibrary.Web.pdb
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\obj\Debug\BookLibrary.Web.csprojResolveAssemblyReference.cache
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\obj\Debug\BookLibrary.Web.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\obj\Debug\BookLibrary.Web.pdb
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\ApplicationInsights.config
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\csc.exe
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\csc.exe.config
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\csc.rsp
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\csi.exe
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\csi.rsp
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\System.AppContext.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\System.Collections.Immutable.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\System.IO.FileSystem.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\System.Reflection.Metadata.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\vbc.exe
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\vbc.exe.config
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\vbc.rsp
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\VBCSCompiler.exe
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\roslyn\VBCSCompiler.exe.config
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\BookLibrary.Web.dll.config
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\BookLibrary.Web.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\BookLibrary.Web.pdb
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\Antlr3.Runtime.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\BookLibrary.Data.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\BookLibrary.Models.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\EntityFramework.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\EntityFramework.SqlServer.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\Microsoft.AI.Agent.Intercept.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\Microsoft.AI.DependencyCollector.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\Microsoft.AI.Web.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\Microsoft.AI.WindowsServer.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\Microsoft.ApplicationInsights.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\Newtonsoft.Json.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\System.Web.Helpers.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\System.Web.Mvc.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\System.Web.Optimization.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\System.Web.Razor.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\System.Web.WebPages.Deployment.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\System.Web.WebPages.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\System.Web.WebPages.Razor.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\WebGrease.dll
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\BookLibrary.Data.pdb
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\BookLibrary.Data.dll.config
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\BookLibrary.Models.pdb
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\BookLibrary.Models.dll.config
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\EntityFramework.xml
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\EntityFramework.SqlServer.xml
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\System.Web.Helpers.xml
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\System.Web.Mvc.xml
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\System.Web.Optimization.xml
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\System.Web.Razor.xml
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\System.Web.WebPages.xml
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\System.Web.WebPages.Deployment.xml
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\System.Web.WebPages.Razor.xml
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\Antlr3.Runtime.pdb
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\Newtonsoft.Json.xml
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\Microsoft.ApplicationInsights.xml
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\Microsoft.AI.DependencyCollector.xml
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\Microsoft.AI.WindowsServer.xml
+D:\BiSoft Projects\BookLibrary - Complete\BookLibrary.Web\bin\Microsoft.AI.Web.xml

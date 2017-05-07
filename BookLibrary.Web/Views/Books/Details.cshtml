@@ -1,0 +1,108 @@
+﻿@using BookLibrary.Models.ViewModels;
+@using BookLibrary.Web.Utilities;
+@model BookLibrary.Models.ViewModels.BookDetailsViewModel
+
+@{
+    ViewBag.Title = Model.User.Username + "'s book";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+@{var loggedUser = AuthManager.GetAuthenticated();}
+<div>
+    <div class="row" style="margin-top:50px">
+        <div class="col-sm-6 commentText" style="text-align: center">
+            <div id="title">
+                <h2>@Model.Title</h2>
+            </div>
+            <div id="bookInfo" class="row">
+                <span class="col-md-4">By: @Model.User.Name</span>
+                <span class="col-md-4">Written on: @Model.UploadDate.ToShortDateString()</span>
+                @if (Model.Reads == 1)
+                {
+                    <span class="col-md-4">Read @Model.Reads time</span>
+                }
+                else
+                {
+                    <span class="col-md-4">Read @Model.Reads times</span>
+                }
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @foreach (var tag in Model.Tags.ToList())
+                    {
+                        <a href="../../Tags/Details/@tag.Id">#@tag.Name </a>
+                    }
+                </div>
+            </div>
+            <hr />
+            <div id="bookContent" class="mousescroll">@Model.Content</div>
+        </div>
+        <div class="col-sm-6">
+            <div class="col-sm-12">
+                <div class="col-sm-2">
+                    <img onclick="location.href='../../Users/Details/' + @Model.UserId" src="data:image;base64,@System.Convert.ToBase64String(Model.User.RegisterProfilePicture)" class="img-circle" width="50" height="50" />
+                </div>
+                <div class="col-sm-2 usernameInModal">
+                    @Html.ActionLink(Model.User.Username, "Details/" + Model.UserId, "Users")
+                </div>
+                @if (AuthManager.IsUserLoggedIn() && (UserUtilities.IsCurrentUserIdEqualTo(Model.UserId) || UserUtilities.IsCurrentUserAdmin()))
+                {
+                    <h5 class="col-sm-2">@Html.ActionLink("Delete", "Delete", "Books", new { id = Model.Id, loggedId = loggedUser.Id }, new { @class = "btn btn-default", id = "deletePictureBtn" })</h5>
+
+                    <h5 class="col-sm-2">@Html.ActionLink("Edit", "Edit", "Books", new { id = Model.Id, loggedId = loggedUser.Id }, new { @class = "btn btn-default", id = "deletePictureBtn" })</h5>
+                }
+                <div class="col-sm-12 commentSection mousescroll">
+                    <br />
+                    @if (Model.Comments.ToList().Count > 0)
+                    {
+                        foreach (var comment in Model.Comments.ToList())
+                        {
+                            if (AuthManager.IsUserLoggedIn() && (UserUtilities.IsCurrentUserIdEqualTo(comment.UserId) || UserUtilities.IsCurrentUserIdEqualTo(Model.UserId) || UserUtilities.IsCurrentUserAdmin()))
+                            {
+                                <form method="post">
+                                    <button type="submit" class="close" formaction="../../Comments/DeleteComment" id="deleteCommentSubmit">&times;</button>
+                                    <input type="text" name="currentCommentID" style="display: none;" value="@comment.Id" />
+                                    <input type="text" name="CurrentPictureID" style="display: none;" value="@Model.Id" />
+                                </form>
+                            }
+                            <div class="commentText"><span>@Html.ActionLink(comment.User.Username, "Details/" + comment.UserId, "Users", null, new { @class = "link" })</span> @comment.Content</div>
+                            <hr />
+                        }
+                    }
+                </div>
+                <div class="col-sm-12">
+                    @if (AuthManager.IsUserLoggedIn())
+                    {
+                        using (Html.BeginForm("AddComment", "Comments", FormMethod.Post, new { @class = "form-inline", role = "form", enctype = "multipart/form-data" }))
+                        {
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.NewComment, new { htmlAttributes = new { @class = "form-control", name = "NewComment" } })
+                                </div>
+                            </div>
+                            <div><input type="text" value="@Model.Id" style="display:none;" name="currentID" /></div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <button type="submit" class="btn btn-default" formaction="../../Comments/AddComment" id="addCommentSubmit">
+                                        <i>Add comment</i>
+                                    </button>
+                                </div>
+                            </div>
+
+                        }
+                    }
+                </div>
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+    </div>
+</div>
+<p>
+</p>
+
+<script src="~/Scripts/jquery-3.1.1.js"></script>
+<script>
+    $('#deleteCommentSubmit').click(function () { $(document).ready(function () { $('#deleteCommentSubmit').attr("disabled", true); }) })
+    $('#addCommentSubmit').click(function () { $(document).ready(function () { $('#addCommentSubmit').attr("disabled", true); }) })
+</script>

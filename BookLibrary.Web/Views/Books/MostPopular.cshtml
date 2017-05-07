@@ -1,0 +1,23 @@
+﻿@using BookLibrary.Models;
+@model IEnumerable<BookLibrary.Models.Book>
+
+@{
+    ViewBag.Title = "Most Popular Books";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Most popular books</h2>
+
+@if(Model.Count() == 0)
+{
+    <h3>No books found</h3>
+}
+else
+{
+    foreach (var book in Model)
+    {
+        <h3><a href="Details/@book.Id">@book.Title</a> by <a href="../../Users/Details/@book.UserId">@book.User.Name</a> read @book.Reads times</h3>
+    }
+}
+
+

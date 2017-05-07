@@ -1,0 +1,89 @@
+﻿@using BookLibrary.Models.ViewModels;
+@using BookLibrary.Models;
+@model BookLibrary.Models.User
+
+@{
+    ViewBag.Title = "Edit my profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm(Html.BeginForm("Edit", "Users", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" })))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <br />
+        <h4>Edit my profile</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        @{string errorMessage = ViewBag.Error;}
+
+        @if (ViewBag.ShowError)
+        {
+            <div>
+                <p class="text-danger">@errorMessage</p>
+            </div>
+
+            ViewBag.ShowError = false;
+        }
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, "New password", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RepeatPassword, "Repeat password", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RepeatPassword, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProfilePictureFile, "Profile picture", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.ProfilePictureFile, new { @class = "form-control", type = "file" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save changes" class="btn btn-default" id="editSubmit" />
+            </div>
+        </div>
+    </div>
+            }
+
+<div>
+</div>
+
+<script src="~/Scripts/jquery-3.1.1.js"></script>
+<script>$('#editSubmit').click(function () { $(document).ready(function () { $('#editSubmit').attr("disabled", true); }) })</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

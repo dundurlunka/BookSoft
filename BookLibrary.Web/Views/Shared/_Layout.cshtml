@@ -1,0 +1,147 @@
+﻿@using BookLibrary.Web.Utilities;
+@using BookLibrary.Data;
+@using BookLibrary.Models;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @{ 
+        var currentUser = AuthManager.GetAuthenticated();
+        var context = new BookLibraryContext();
+        var notifications = new List<Notification>();
+        if (currentUser != null)
+        {
+            notifications = context.Notifications.Where(n => n.ReceiverId == currentUser.Id).OrderByDescending(n => n.Date).ToList();
+        }
+    }
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("BookSoft", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @if (UserUtilities.IsCurrentUserAdmin())
+                    {
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                Admin Panel
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("All Users", "Index", "Users")</li>
+                                <li>@Html.ActionLink("All Books", "Index", "Books")</li>
+                                
+                            </ul>
+                        </li>
+
+                    }
+                    <li>@Html.ActionLink("Most Popular Books", "MostPopular", "Books")</li>
+                    @if (AuthManager.IsUserLoggedIn())
+                    {
+                        <li>@Html.ActionLink("Write а book", "Create", "Books")</li>
+                    }
+                    <li>
+                        <form method="post" class="navbar-form navbar-left">
+                            <div class="form-group">
+                                <input type="text" placeholder="Search..." name="searchEngine" class="form-control" />
+                            </div>
+                            <button type="submit" class="btn btn-default" id="searchBtn" formaction="../../Search/Index">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (AuthManager.IsUserLoggedIn())
+                    {
+                        <li>
+                            <div class="dropdown">
+                                <img src="~/Content/world.png" data-toggle="dropdown" class="nav navbar-nav navbar-right heart-notification" onmouseover="this.style.border='solid 1px #fffff'" onmouseout="this.style.border='solid 1px #222222'"  />
+                                <ul id="notificationDropDown" class="dropdown-menu">
+                                    @if(notifications.Count == 0)
+                                    {
+                                        <li style="text-align:center"><h3>You have no new notifications!</h3></li>
+                                    }
+                                    @foreach (var notification in notifications)
+                                    {
+                                        if (notification.Type.ToString() == "Follow")
+                                        {
+                                            <li class="notification">
+                                                <img onclick="location.href='../../Users/Details/' + @notification.SenderId" src="data:image;base64,@System.Convert.ToBase64String(notification.Sender.RegisterProfilePicture)" class="img-circle" width="50" height="50" />
+                                                <span class="commentText">@Html.ActionLink(notification.Sender.Username, "Details/" + notification.SenderId, "Users") started following you.</span>
+                                                @if (currentUser.Id != notification.SenderId && !notification.Sender.Followers.Any(u => u.Id == currentUser.Id))
+                                                {
+                                                    <div style="display:inline">
+                                                        @Html.ActionLink("Follow", "Follow", "Users", new { id = notification.SenderId, loggedId = currentUser.Id }, new { @class = "btn btn-default" })
+                                                    </div>
+                                                }
+                                                else if (currentUser.Id != notification.SenderId && notification.Sender.Followers.Any(u => u.Id == currentUser.Id))
+                                                {
+                                                    <div>
+                                                        @Html.ActionLink("Unfollow", "Unfollow", "Users", new { id = notification.Sender.Id, loggedId = currentUser.Id }, new { @class = "btn btn-default", style = "margin-top: 22px" })
+                                                    </div>
+                                                }
+                                            </li>
+                                            <li><hr /></li>
+
+                                        }
+                                        else if (notification.Type.ToString() == "BookUpload")
+                                        {
+                                            <li class="notification">
+                                                <img onclick="location.href='../../Users/Details/' + @notification.SenderId" src="data:image;base64,@System.Convert.ToBase64String(notification.Sender.RegisterProfilePicture)" class="img-circle" width="50" height="50" />
+                                                <span class="commentText">@Html.ActionLink(notification.Sender.Username, "Details/" + notification.SenderId, "Users") wrote a new book</span>
+                                                <img onclick="location.href='../../Books/Details/' + @notification.BookId" src="data:image;base64,@System.Convert.ToBase64String(notification.Book.Cover)" width="50" height="50" />
+                                            </li>
+                                            <li><hr /></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="notification">
+                                                <img onclick="location.href='../../Users/Details/' + @notification.SenderId" src="data:image;base64,@System.Convert.ToBase64String(notification.Sender.RegisterProfilePicture)" class="img-circle" width="50" height="50" />
+                                                <span class="commentText">@Html.ActionLink(notification.Sender.Username, "Details/" + notification.SenderId, "Users") commented on your photo.</span>
+                                                <img onclick="location.href='../../Books/Details/' + @notification.BookId" src="data:image;base64,@System.Convert.ToBase64String(notification.Book.Cover)" width="50" height="50" />
+                                            </li>
+                                            <li><hr /></li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </li>
+                        <li><img src="~/Content/myProfileIcon.png" id="myProfileIcon" onclick="location.href='../../Users/Details/' + @AuthManager.GetAuthenticated().Id" class="nav navbar-nav navbar-right" style="margin-top: 5px;"/></li>          
+                        <li>@Html.ActionLink("Logout", "Logout", "Users")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Login", "Login", "Users")</li>
+                        <li>@Html.ActionLink("Register", "Create", "Users")</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - BookSoft by Daniel Georgiev</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

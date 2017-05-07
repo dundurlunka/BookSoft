@@ -1,0 +1,186 @@
+﻿@using BookLibrary.Models;
+@using BookLibrary.Web.Utilities;
+@model BookLibrary.Models.User
+
+@{
+    ViewBag.Title = Model.Username + "'s profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <br />
+    <br />
+    <div class="jumbotron row">
+        <div class="col-md-3">
+            <img src="data:image;base64,@System.Convert.ToBase64String(Model.RegisterProfilePicture)" width="152" height="152" class="img-circle" />
+        </div>
+        <div class="col-md-9">
+            <div class="container col-md-4">
+                Publications:
+                <b>@Html.DisplayFor(model => model.Books.Count)</b>
+            </div>
+            <div class="container col-md-4">
+                Following:
+                <a data-toggle="modal" data-target="#myModal1"><b>@Html.DisplayFor(model => model.Following.Count)</b></a>
+            </div>
+            <div class="containter col-md-4">
+                Followers:
+                <a data-toggle="modal" data-target="#myModal2"><b>@Html.DisplayFor(model => model.Followers.Count)</b></a>
+            </div>
+            <div class="container col-md-4">
+                <h2><i>@Html.DisplayFor(model => model.Username)</i></h2>
+            </div>
+            @{
+                var loggedUser = AuthManager.GetAuthenticated();
+            }
+            @if (UserUtilities.IsCurrentUserIdEqualTo(Model.Id))
+            {
+                <div class="container col-md-4">
+                    @Html.ActionLink("Edit your profile", "Edit", new { id = Model.Id }, htmlAttributes: new { @class = "btn btn-default", style = "margin-top: 20px" })
+                </div>
+            }
+            else
+            {
+                if (!UserUtilities.IsCurrentUserIdEqualTo(Model.Id) && !Model.Followers.Any(u => UserUtilities.IsCurrentUserIdEqualTo(u.Id)))
+                {
+                    <div class="container col-md-4">
+                        @Html.ActionLink("Follow", "Follow", "Users", new { id = Model.Id, loggedId = loggedUser.Id }, new { @class = "btn btn-default", style = "margin-top: 20px" })
+                    </div>
+                }
+                else if (!UserUtilities.IsCurrentUserIdEqualTo(Model.Id) && Model.Followers.Any(u => UserUtilities.IsCurrentUserIdEqualTo(u.Id)))
+                {
+                    <div class="container col-md-4">
+                        @Html.ActionLink("Unfollow", "Unfollow", "Users", new { id = Model.Id, loggedId = loggedUser.Id }, new { @class = "btn btn-default", style = "margin-top: 20px" })
+                    </div>
+                }
+            }
+            <div class="col-md-4 userRole">
+                @UserUtilities.GetUserRole(Model)
+            </div>
+        </div>
+        @*<hr />*@
+    </div>
+    <div class="container-fluid bg-3 text-center">
+        <div class="row">
+            @if (Model.Books.Count == 0)
+            {
+                <h3>No books written</h3>
+            }
+            @foreach (var currentBook in Model.Books.OrderByDescending(p => p.Id))
+            {
+                <div class="col-sm-4" style="width: 33%; margin-bottom: 15px;">
+                    <div class="col-sm-12">
+                        <h3>@Html.ActionLink(currentBook.Title, "../Books/Details/" + currentBook.Id, "Books", htmlAttributes: new { @class = "bookTitleUserDetails" })</h3>
+                    </div>
+                    <img src="data:image;base64,@System.Convert.ToBase64String(currentBook.Cover)" class="img-responsive userDetailsPicture cover" style="width:100%" onclick="location.href='../../Books/Details/' + @currentBook.Id">
+                </div>
+            }
+        </div>
+    </div><br><br>
+
+
+    <!-- Modal1 -->
+    <div id="myModal1" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content1-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Following</h4>
+                </div>
+                <div class="modal-body" style="height: 500px; overflow-y:auto">
+                    @if (Model.Following.Count != 0)
+                    {
+                        foreach (var followingUser in Model.Following)
+                        {
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="data:image;base64,@System.Convert.ToBase64String(followingUser.RegisterProfilePicture)" class="img-circle" width="50" height="50" />
+                                </div>
+                                <div class="col-sm-3 usernameInModal">
+                                    @Html.ActionLink(followingUser.Username, "Details/" + followingUser.Id, "Users", new { @class = "link" })
+                                </div>
+                                <div class="col-sm-6">
+                                    @if (AuthManager.IsUserLoggedIn())
+                                    {
+                                        if (!UserUtilities.IsCurrentUserIdEqualTo(followingUser.Id) && !followingUser.Followers.Any(u => UserUtilities.IsCurrentUserIdEqualTo(u.Id)))
+                                        {
+                                            <div class="container col-md-4">
+                                                @Html.ActionLink("Follow", "Follow", "Users", new { id = followingUser.Id, loggedId = loggedUser.Id }, new { @class = "btn btn-default", style = "margin-top: 15px" })
+                                            </div>
+                                        }
+                                        else if (!UserUtilities.IsCurrentUserIdEqualTo(followingUser.Id) && followingUser.Followers.Any(u => UserUtilities.IsCurrentUserIdEqualTo(u.Id)))
+                                        {
+                                            <div class="container col-md-4">
+                                                @Html.ActionLink("Unfollow", "Unfollow", "Users", new { id = followingUser.Id, loggedId = loggedUser.Id }, new { @class = "btn btn-default", style = "margin-top: 15px" })
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal2 -->
+    <div id="myModal2" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content2-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Followers</h4>
+                </div>
+                <div class="modal-body" style="height: 500px; overflow-y:auto">
+                    @if (Model.Followers.Count != 0)
+                    {
+                        foreach (var follower in Model.Followers)
+                        {
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="data:image;base64,@System.Convert.ToBase64String(follower.RegisterProfilePicture)" class="img-circle" width="50" height="50" />
+                                </div>
+                                <div class="col-sm-3">
+                                    <br />
+                                    @Html.ActionLink(follower.Username, "Details/" + follower.Id, "Users", new { @class = "link" })
+                                </div>
+                                <div class="col-sm-6">
+                                    @if (AuthManager.IsUserLoggedIn())
+                                    {
+                                        if (UserUtilities.IsCurrentUserIdEqualTo(follower.Id) && !follower.Followers.Any(u => UserUtilities.IsCurrentUserIdEqualTo(loggedUser.Id)))
+                                        {
+                                            <div class="container col-md-4">
+                                                @Html.ActionLink("Follow", "Follow", "Users", new { id = follower.Id, loggedId = loggedUser.Id }, new { @class = "btn btn-default", style = "margin-top: 15px" })
+                                            </div>
+                                        }
+                                        else if (!UserUtilities.IsCurrentUserIdEqualTo(follower.Id) && follower.Followers.Any(u => UserUtilities.IsCurrentUserIdEqualTo(loggedUser.Id)))
+                                        {
+                                            <div class="container col-md-4">
+                                                @Html.ActionLink("Unfollow", "Unfollow", "Users", new { id = follower.Id, loggedId = loggedUser.Id }, new { @class = "btn btn-default", style = "margin-top: 15px" })
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

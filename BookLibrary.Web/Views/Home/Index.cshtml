@@ -1,0 +1,49 @@
+﻿@using BookLibrary.Web.Utilities;
+@using BookLibrary.Models;
+@model List<BookLibrary.Models.Book>
+@{
+    ViewBag.Title = "BookSoft";
+}
+
+@if (AuthManager.GetAuthenticated() == null)
+{
+    <div class="jumbotron" style="text-align: center">
+        <h1>BookSoft</h1>
+        <p class="lead"><b>You are not logged in. Please  <a href="../Users/Create">register</a> or <a href="../Users/Login">login</a> to gain access to all of our features.</b></p>
+    </div>
+}
+else
+{
+    <div class="row">
+        @if (Model.Count != 0)
+        {
+            foreach (var book in Model)
+            {
+                <div class="col-sm-3"></div>
+                <div class="col-sm-9">
+                    <div class="bookIndex">
+                        <div class="userInfo">
+                            <div class="col-sm-4">
+                                <img class="profilePictureIndex" src="data:image;base64,@System.Convert.ToBase64String(book.User.RegisterProfilePicture)" onclick="location.href='../../Users/Details/' + @book.UserId" />
+                                @Html.ActionLink(book.User.Username, "Details/" + book.UserId, "Users")
+                            </div>
+                            <div class="col-sm-4 userInfoIndex">
+                                @if (book.Reads == 1)
+                                {
+                                    <span class="col-md-4">Read @book.Reads time</span>
+                                }
+                                else
+                                {
+                                    <span class="col-md-4">Read @book.Reads times</span>
+                                }
+                            </div>
+                            <div class="col-sm-4 userInfoIndex">@book.UploadDate.ToShortDateString()</div>
+                        </div>
+                        <img class="cover" src="data:image;base64,@System.Convert.ToBase64String(book.Cover)" onclick="location.href='../../Books/Details/' + @book.Id" />
+                    </div>
+                </div>
+
+            }
+        }
+    </div>
+}

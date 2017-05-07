@@ -1,0 +1,51 @@
+﻿@using BookLibrary.Models;
+@model BookLibrary.Models.Tag
+
+@{
+    ViewBag.Title = "#" + Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <br />
+    <h1 style="text-align: center;">#@Model.Name</h1>
+    <br />
+    @{ var postsCount = Model.Books.Count;}
+    @if (postsCount == 1)
+    {
+        <h3 style="text-align: center;">@postsCount book</h3>
+    }
+    else
+    {
+        <h3 style="text-align: center;">@postsCount books</h3>
+    }
+    <hr />
+    <div class="row">
+        @foreach (var book in Model.Books.OrderByDescending(p => p.Id).Take(20).ToList())
+        {
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9">
+                <div class="bookIndex">
+                    <div class="userInfo">
+                        <div class="col-sm-4">
+                            <img class="profilePictureIndex" src="data:image;base64,@System.Convert.ToBase64String(book.User.RegisterProfilePicture)" onclick="location.href='../../Users/Details/' + @book.UserId" />
+                            @Html.ActionLink(book.User.Username, "Details/" + book.UserId, "Users")
+                        </div>
+                        <div class="col-sm-4 userInfoIndex">
+                            @if (book.Reads == 1)
+                            {
+                                <span class="col-md-4">Read @book.Reads time</span>
+                            }
+                            else
+                            {
+                                <span class="col-md-4">Read @book.Reads times</span>
+                            }
+                        </div>
+                        <div class="col-sm-4 userInfoIndex">@book.UploadDate.ToShortDateString()</div>
+                    </div>
+                    <img class="cover" src="data:image;base64,@System.Convert.ToBase64String(book.Cover)" onclick="location.href='../../Books/Details/' + @book.Id" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
